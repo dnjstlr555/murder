@@ -112,7 +112,13 @@ function GM:DoScoreboardActionPopup(ply)
 			function force:DoClick()
 				RunConsoleCommand("mu_forcenextmurderer", ply:EntIndex())
 			end
-
+			
+			local adminpanel = actions:AddOption( "Admin Panel" )
+			adminpanel:SetIcon( "icon16/shield.png" )
+			function adminpanel:DoClick()
+				LocalPlayer():ConCommand("mu_adminpanel")
+			end
+			
 			if ply:Alive() then
 				local specateThem = actions:AddOption( translate.adminSpectate )
 				specateThem:SetIcon( "icon16/status_online.png" )
